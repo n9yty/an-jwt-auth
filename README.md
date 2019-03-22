@@ -20,9 +20,13 @@ JSON Web Token (JWT) — это открытый стандарт ([RFC 7519](ht
 Чтобы включить эту опцию, вам нужно отредактировать ваш файл **.htaccess**, добавив следующее
 
 `
+
 RewriteEngine on
+
 RewriteCond %{HTTP:Authorization} ^(.*)
+
 RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+
 `
 
 #### WPENGINE
@@ -32,7 +36,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 См. Https://github.com/Tmeister/wp-api-jwt-auth/issues/1.
 
 `
+
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
 `
 
 #### НАСТРОЙКА ПОДДЕРЖКИ CORS
@@ -42,6 +48,8 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 Чтобы включить поддержку CORs, отредактируйте файл wp-config.php и добавьте новую константу с именем **JWT_AUTH_CORS_ENABLE**
 
 `
+
 define('JWT_AUTH_CORS_ENABLE', true);
+
 `
 
