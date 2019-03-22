@@ -1,6 +1,6 @@
 <?php
 /**
- * AN JWT AUTH plugin for WordPress
+ * JWT Authentication for WP REST API 
  *
  * @package   an-jwt-auth
  * @link      https://github.com/SashokNekulin
@@ -9,7 +9,7 @@
  * @license   GPL v2 or later
  *
  * Plugin Name:  AN JWT AUTH
- * Description:  User reviews for the site Wordpres.
+ * Description:  Extends the WP REST API using JSON Web Tokens Authentication as an authentication method.
  * Version:      0.0.1
  * Plugin URI:   https://github.com/SashokNekulin/an-jwt-auth
  * Author:       Alexandr Nikulin
@@ -53,10 +53,10 @@ require_once 'lib/vendor/autoload.php';
 
 // config
 
-function an_user_feedback_setup() {
+function an_jwt_auth_setup() {
 	load_plugin_textdomain( 'an-jwt-auth', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
-add_action( 'init', 'an_user_feedback_setup' );
+add_action( 'init', 'an_jwt_auth_setup' );
 
 // core
 
