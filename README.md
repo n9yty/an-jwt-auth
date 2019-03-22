@@ -20,12 +20,16 @@
 Чтобы включить эту опцию, вам нужно отредактировать ваш файл **.htaccess**, добавив следующее
 
 ```
-RewriteEngine on
+# BEGIN AN-JWT-AUTH
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+</IfModule>
+# END AN-JWT-AUTH
 ```
 
-#### WPENGINE
+#### WPEngine
 
 Чтобы включить эту опцию, вам нужно отредактировать ваш файл **.htaccess**, добавив следующее
 
