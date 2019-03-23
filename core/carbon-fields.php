@@ -54,7 +54,7 @@ function an_jwt_auth_set_carbon_fields(){
                 )
             ) ),
             Field::make( 'select', 'jwt_cors', __( 'Use CORs?', 'an-jwt-auth' ) )
-            ->set_help_text( 'Cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">CORS</a>; с англ. — «совместное использование ресурсов между разными источниками») — технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена.' )
+            ->set_help_text( 'Cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing"> CORS </a>; с англ. — «совместное использование ресурсов между разными источниками») — технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена.' )
             ->set_options( array(
                 '1' => __( 'Yes', 'an-jwt-auth' ),
                 '0' => __( 'No', 'an-jwt-auth' )
