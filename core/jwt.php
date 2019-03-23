@@ -67,9 +67,9 @@ class AnJwt {
 				return (object) array( 'message' => 'Invalid token type', 'code' => 'invalid_token_type', 'status' => 403 );
 			} 
 			global $wpdb;
-			$row = $wpdb->get_results( "SELECT * FROM `" . $wpdb->prefix . "ac_jwt_token` WHERE `hash` = '" . $decoded->hash ."'" );
+			$row = $wpdb->get_results( "SELECT * FROM `" . $wpdb->prefix . "an_jwt_token` WHERE `hash` = '" . $decoded->hash ."'" );
 			if ( count( $row ) > 0){
-				$wpdb->query("DELETE FROM `" . $wpdb->prefix . "ac_jwt_token` WHERE `hash` = '" . $decoded->hash . "'");
+				$wpdb->query("DELETE FROM `" . $wpdb->prefix . "an_jwt_token` WHERE `hash` = '" . $decoded->hash . "'");
 				//новые токены
 				return self::newToken($decoded->id, $decoded->hash);
 			}else{
@@ -108,7 +108,7 @@ class AnJwt {
 		$refresh_token = JWT::encode($token_reflesh, $jwt_key, 'HS256' );
 		self::clearToken();
 		$ip = self::get_the_user_ip();
-		$row = $wpdb->insert( $wpdb->prefix . 'ac_jwt_token', array( 'user_id' => $user_id, 'hash' => $hash , 'exp' => $time + $jwt_nbf_session, 'ip' => $ip ), array( '%d', '%s', '%d', '%s' ) );
+		$row = $wpdb->insert( $wpdb->prefix . 'an_jwt_token', array( 'user_id' => $user_id, 'hash' => $hash , 'exp' => $time + $jwt_nbf_session, 'ip' => $ip ), array( '%d', '%s', '%d', '%s' ) );
 		if( $row ){
 			header('token: ' . $access_token . '');
             header('refreshToken: ' . $refresh_token . '');
@@ -131,7 +131,7 @@ class AnJwt {
     }
     private function clearToken(){
 		global $wpdb;
-		$wpdb->query( "DELETE FROM `" . $wpdb->prefix . "ac_jwt_token` WHERE `exp` < " . time() );
+		$wpdb->query( "DELETE FROM `" . $wpdb->prefix . "an_jwt_token` WHERE `exp` < " . time() );
     }
     private function get_the_user_ip() {
         if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {

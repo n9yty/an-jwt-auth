@@ -71,7 +71,7 @@ class AN_OAUTH extends WP_REST_Controller{
 			}
 			if(isset($token->hash)){
 				global $wpdb;
-				$wpdb->query( "DELETE FROM `" . $wpdb->prefix . "ac_jwt_token` WHERE `hash` = '" . $token->hash . "'" );
+				$wpdb->query( "DELETE FROM `" . $wpdb->prefix . "an_jwt_token` WHERE `hash` = '" . $token->hash . "'" );
 			}
 			
         }catch(Exception $e){
