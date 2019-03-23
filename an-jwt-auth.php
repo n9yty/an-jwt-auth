@@ -10,7 +10,7 @@
  *
  * Plugin Name:  AN JWT AUTH
  * Description:  Extends the WP REST API using JSON Web Tokens Authentication as an authentication method.
- * Version:      0.0.1
+ * Version:      1.0.0
  * Plugin URI:   https://github.com/SashokNekulin/an-jwt-auth
  * Author:       Alexandr Nikulin
  * Author URI:   https://github.com/SashokNekulin
@@ -45,7 +45,7 @@ define( 'AN_JWT_AUTH_URL', plugin_dir_url( __FILE__  ) );
 /**
  * Версия плагина
  */
-define( 'AN_JWT_AUTH_VERSION', 'V0.0.1' );
+define( 'AN_JWT_AUTH_VERSION', 'V1.0.0' );
 
 // composer
 
