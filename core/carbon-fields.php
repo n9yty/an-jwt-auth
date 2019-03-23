@@ -32,7 +32,7 @@ function an_jwt_auth_set_carbon_fields(){
                     'compare' => '=', 
                 )
             ) ),
-			Field::make( 'text', 'jwt_nbf_session', __( 'The lifetime of the "refresh token" in seconds', 'an-jwt-auth' ) )
+			Field::make( 'text', 'jwt_nbf_session', __( 'The lifetime of the refresh token in seconds', 'an-jwt-auth' ) )
             ->set_attribute( 'type', 'number' )->set_attribute( 'step', '10' )
             ->set_default_value( 2678400 )
             ->set_conditional_logic( array(
@@ -54,7 +54,7 @@ function an_jwt_auth_set_carbon_fields(){
                 )
             ) ),
             Field::make( 'select', 'jwt_cors', __( 'Use CORs?', 'an-jwt-auth' ) )
-            ->set_help_text( 'Cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing"> CORS </a>; с англ. — «совместное использование ресурсов между разными источниками») — технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена.' )
+            ->set_help_text( __( 'Cross-origin resource sharing (<a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing"> CORS </a>; with persistent. - "sharing resources between different sources")-a technology of modern browsers that allows you to provide a web page access to resources of another domain.', 'an-jwt-auth' ) )
             ->set_options( array(
                 '1' => __( 'Yes', 'an-jwt-auth' ),
                 '0' => __( 'No', 'an-jwt-auth' )

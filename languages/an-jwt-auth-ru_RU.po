@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AN JWT AUTH\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-23 07:08+0000\n"
-"PO-Revision-Date: 2019-03-23 07:19+0000\n"
+"POT-Creation-Date: 2019-03-23 07:48+0000\n"
+"PO-Revision-Date: 2019-03-23 07:48+0000\n"
 "Last-Translator: sashok <nekulin@mail.ru>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -15,13 +15,57 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.2.1; wp-5.1.1"
 
+#: core/bootstrap.php:14
+msgid "Settings"
+msgstr "Настройки"
+
+#: core/carbon-fields.php:14
+msgid "JWT auth settings"
+msgstr "Настройки JWT аутентификации."
+
+#: core/carbon-fields.php:17
+msgid "JWT AUTH"
+msgstr "JWT AUTH"
+
+#: core/carbon-fields.php:19
+msgid "JWT switch?"
+msgstr "Использовать JWT аутентификацию?"
+
+#: core/carbon-fields.php:21 core/carbon-fields.php:59
+msgid "Yes"
+msgstr "Да"
+
+#: core/carbon-fields.php:22 core/carbon-fields.php:60
+msgid "No"
+msgstr "Нет"
+
 #: core/carbon-fields.php:24
 msgid "Access token lifetime in seconds"
-msgstr "Время жизни \"access token\" в секундах"
+msgstr "Время жизни access token в секундах"
 
-#. Author of the plugin
-msgid "Alexandr Nikulin"
-msgstr "Александр Никулин"
+#: core/carbon-fields.php:35
+msgid "The lifetime of the refresh token in seconds"
+msgstr "Время жизни refresh token в секундах"
+
+#: core/carbon-fields.php:46
+msgid "Secret JWT Key (Used to encrypt JWT)"
+msgstr "Secret JWT Key (Used to encrypt JWT)"
+
+#: core/carbon-fields.php:56
+msgid "Use CORs?"
+msgstr "Включить поддержку CORs?"
+
+#: core/carbon-fields.php:57
+msgid ""
+"Cross-origin resource sharing (<a href=\"https://en.wikipedia.org/wiki/Cross-"
+"origin_resource_sharing\"> CORS </a>; with persistent. - \"sharing resources "
+"between different sources\")-a technology of modern browsers that allows you "
+"to provide a web page access to resources of another domain."
+msgstr ""
+"Cross-origin resource sharing (<a href=\"https://en.wikipedia.org/wiki/Cross-"
+"origin_resource_sharing\"> CORS </a>; с англ. — «совместное использование "
+"ресурсов между разными источниками») — технология современных браузеров, "
+"которая позволяет предоставить веб-странице доступ к ресурсам другого домена."
 
 #. Name of the plugin
 msgid "AN JWT AUTH"
@@ -35,46 +79,14 @@ msgstr ""
 "Расширяет API WP REST, используя аутентификацию веб-маркеров JSON в качестве "
 "метода аутентификации."
 
-#. Author URI of the plugin
-msgid "https://github.com/SashokNekulin"
-msgstr "https://github.com/SashokNekulin"
-
 #. URI of the plugin
 msgid "https://github.com/SashokNekulin/an-jwt-auth"
 msgstr "https://github.com/SashokNekulin/an-jwt-auth"
 
-#: core/carbon-fields.php:17
-msgid "JWT AUTH"
-msgstr "JWT AUTH"
+#. Author of the plugin
+msgid "Alexandr Nikulin"
+msgstr "Александр Никулин"
 
-#: core/carbon-fields.php:14
-msgid "JWT auth settings"
-msgstr "Настройки JWT аутентификации."
-
-#: core/carbon-fields.php:19
-msgid "JWT switch?"
-msgstr "Использовать JWT аутентификацию?"
-
-#: core/carbon-fields.php:22 core/carbon-fields.php:60
-msgid "No"
-msgstr "Нет"
-
-#: core/carbon-fields.php:46
-msgid "Secret JWT Key (Used to encrypt JWT)"
-msgstr "Secret JWT Key (Used to encrypt JWT)"
-
-#: core/bootstrap.php:14
-msgid "Settings"
-msgstr "Настройки"
-
-#: core/carbon-fields.php:35
-msgid "The lifetime of the \"refresh token\" in seconds"
-msgstr "Время жизни \"refresh token\" в секундах"
-
-#: core/carbon-fields.php:56
-msgid "Use CORs?"
-msgstr "Включить поддержку CORs?"
-
-#: core/carbon-fields.php:21 core/carbon-fields.php:59
-msgid "Yes"
-msgstr "Да"
+#. Author URI of the plugin
+msgid "https://github.com/SashokNekulin"
+msgstr "https://github.com/SashokNekulin"
