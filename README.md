@@ -92,51 +92,56 @@ Finally activate the plugin within the plugin dashboard.
 
 Проверяет **refreshToken** и при успехе возвращает новую пару **accessToken** и **refreshToken**  а так же некоторые данные пользователя.
 
+### /wp-json/jwt-auth/v1/logout
+
+Это точка для выхода.
+
+Удаляет **refreshToken** из памяти сервера.
+
 ##### Пример успешного ответа сервера
 ```
 {
-"accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzNDEzNjks...",
-"refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzNDEzNjk...",
-"data": {
-   "user_id": 1,
-   "user_email": "user@gmail.com",
-   "user_nicename": "UserNicName",
-   "user_display_name": "UserDisplayName",
-   "client_ip": "127.0.0.1"
-   }
+  "accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzNDEzNjks...",
+  "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzNDEzNjk...",
+  "data": {
+     "user_id": 1,
+     "user_email": "user@gmail.com",
+     "user_nicename": "UserNicName",
+     "user_display_name": "UserDisplayName",
+     "client_ip": "127.0.0.1"
+     }
 }
 ```
 ##### Некоторые примеры ошибки ответа сервера
 ```
 {
-"code": "token_failed_validation",
-"message": "Wrong number of segments",
-"data":{
-   "status": 403
-  }
+  "code": "token_failed_validation",
+  "message": "Wrong number of segments",
+  "data":{
+     "status": 403
+    }
 }
 ```
 
 ```
 {
-{
-"code": "rest_missing_callback_param",
-"message": "Отсутствует параметр: refreshToken",
-"data":{
-   "status": 400,
-   "params":[
-     "refreshToken"
-     ]
-   }
+  "code": "rest_missing_callback_param",
+  "message": "Отсутствует параметр: refreshToken",
+  "data":{
+     "status": 400,
+     "params":[
+       "refreshToken"
+       ]
+     }
 }
 ```
 
 ```
 {
-"code": "wrong_login_or_password",
-"message": "Wrong login or password",
-"data":{
-    "status": 403
-  }
+  "code": "wrong_login_or_password",
+  "message": "Wrong login or password",
+  "data":{
+      "status": 403
+    }
 }
 ```
