@@ -86,6 +86,11 @@ Finally activate the plugin within the plugin dashboard.
 Проверяет учетные данные пользователя, **username** и **password**,   возвращает токен **accessToken** для использования в будущем запросе к API, если аутентификация правильная, или ошибку если аутентификация не удалась.
 Также возвращается **refreshToken** и некоторые данные пользователя.
 
+### /wp-json/jwt-auth/v1/tokenRefresh
+
+Это точка для смены **accessToken**.
+
+Проверяет **refreshToken** и при успехе возвращает новую пару **accessToken** и **refreshToken**  а так же некоторые данные пользователя.
 
 ##### Пример успешного ответа сервера
 ```
@@ -101,4 +106,37 @@ Finally activate the plugin within the plugin dashboard.
    }
 }
 ```
+##### Некоторые примеры ошибки ответа сервера
+```
+{
+"code": "token_failed_validation",
+"message": "Wrong number of segments",
+"data":{
+   "status": 403
+  }
+}
+```
 
+```
+{
+{
+"code": "rest_missing_callback_param",
+"message": "Отсутствует параметр: refreshToken",
+"data":{
+   "status": 400,
+   "params":[
+     "refreshToken"
+     ]
+   }
+}
+```
+
+```
+{
+"code": "wrong_login_or_password",
+"message": "Wrong login or password",
+"data":{
+    "status": 403
+  }
+}
+```
