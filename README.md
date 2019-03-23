@@ -43,8 +43,4 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 
 Плагин имеет возможность активировать [CORs](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) поддержку.
 
-Чтобы включить поддержку CORs, отредактируйте файл wp-config.php и добавьте новую константу с именем **JWT_AUTH_CORS_ENABLE**
-
-```
-define('JWT_AUTH_CORS_ENABLE', true);
-```
+Чтобы включить поддержку CORs включите эту опцию в настройках плагина.
