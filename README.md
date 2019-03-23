@@ -44,3 +44,46 @@ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 Плагин имеет возможность активировать [CORs](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) поддержку.
 
 Чтобы включить поддержку CORs включите эту опцию в настройках плагина.
+
+Finally activate the plugin within the plugin dashboard.
+
+## Пространство имен и конечные точки
+
+Когда плагин активирован, добавляется новое пространство имен.
+
+
+```
+/jwt-auth/v1
+```
+
+
+Кроме того, три новые конечные точки добавляются в это пространство имен.
+
+
+| конечные точки                        | HTTP       |
+| ------------------------------------- | ---------- |
+| */wp-json/jwt-auth/v1/token*          | POST | GET |
+| */wp-json/jwt-auth/v1/tokenRefresh*   | POST | GET |
+| */wp-json/jwt-auth/v1/logout*         | POST | GET |
+
+## Использование
+### /wp-json/jwt-auth/v1/token
+
+Это точка входа для аутентификации JWT.
+
+Проверяет учетные данные пользователя, * username * и * password *,   возвращает токен * accessToken * для использования в будущем запросе к API, если аутентификация правильная, или ошибку если аутентификация не удалась.
+Также возвращается * refreshToken * и некоторые данные пользователя.
+
+```
+{
+"accessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzNDEzNjks...",
+"refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTMzNDEzNjk...",
+"data": {
+   "user_id": 1,
+   "user_email": "user@gmail.com",
+   "user_nicename": "UserNicName",
+   "user_display_name": "UserDisplayName",
+   "client_ip": "127.0.0.1"
+   }
+}
+```
