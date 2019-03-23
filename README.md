@@ -62,9 +62,9 @@ Finally activate the plugin within the plugin dashboard.
 
 | конечные точки                        | HTTP       |
 | ------------------------------------- | ---------- |
-| */wp-json/jwt-auth/v1/token*          | POST | GET |
-| */wp-json/jwt-auth/v1/tokenRefresh*   | POST | GET |
-| */wp-json/jwt-auth/v1/logout*         | POST | GET |
+| */wp-json/jwt-auth/v1/token*          | POST / GET |
+| */wp-json/jwt-auth/v1/tokenRefresh*   | POST / GET |
+| */wp-json/jwt-auth/v1/logout*         | POST / GET |
 
 ## Использование
 ### /wp-json/jwt-auth/v1/token
