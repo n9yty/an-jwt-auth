@@ -59,7 +59,6 @@ function an_jwt_auth_setup() {
 add_action( 'init', 'an_jwt_auth_setup' );
 
 // core
-
 require_once 'core/bootstrap.php';
 
 // update
