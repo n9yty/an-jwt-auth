@@ -153,4 +153,3 @@ Finally activate the plugin within the plugin dashboard.
 }
 ```
 #### Далее для доступа к приватным API достаточно в HTTP заголовке Authorization передать accessToken
-
