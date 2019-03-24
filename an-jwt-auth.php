@@ -45,7 +45,7 @@ define( 'AN_JWT_AUTH_URL', plugin_dir_url( __FILE__  ) );
 /**
  * Версия плагина
  */
-define( 'AN_JWT_AUTH_VERSION', 'V1.0.1' );
+define( 'AN_JWT_AUTH_VERSION', 'V1.0.2' );
 /**
  * Действия при активации плагина
  */
