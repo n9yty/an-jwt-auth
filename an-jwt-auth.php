@@ -15,7 +15,7 @@
  * Author:       Alexandr Nikulin
  * Author URI:   https://github.com/SashokNekulin
  * Text Domain:  an-jwt-auth
- * Domain Path:  /languages
+ * Domain Path:  /languages/
  * Requires PHP: 5.6.0
  * GitHub Plugin URI: https://github.com/SashokNekulin/an-jwt-auth
  *
@@ -60,7 +60,7 @@ require_once 'lib/vendor/autoload.php';
 // config
 
 function an_jwt_auth_setup() {
-	load_plugin_textdomain( 'an-jwt-auth', true, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'an-jwt-auth', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'init', 'an_jwt_auth_setup' );
 
