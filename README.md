@@ -120,16 +120,17 @@ Finally activate the plugin within the plugin dashboard.
 }
 ```
 ##### Некоторые примеры ошибки ответа сервера
+Истек срок действия ключа
 ```
 {
-  "code": "token_failed_validation",
-  "message": "Wrong number of segments",
+  "code": "jwt_auth_expired_token",
+  "message": "Expired token",
   "data":{
-     "status": 403
+     "status": 419
     }
 }
 ```
-
+Отсутствуют необходимые параметры
 ```
 {
   "code": "rest_missing_callback_param",
@@ -142,13 +143,13 @@ Finally activate the plugin within the plugin dashboard.
      }
 }
 ```
-
+Провалилась авторизация
 ```
 {
   "code": "wrong_login_or_password",
   "message": "Wrong login or password",
   "data":{
-      "status": 403
+      "status": 401
     }
 }
 ```
