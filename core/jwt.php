@@ -31,6 +31,15 @@ class AnJwt {
             return true;
 			
         } catch ( Exception $e ) {
+            if( $e->getMessage() === 'Expired token' ){
+                return new WP_Error(
+                    'jwt_auth_expired_token',
+                    $e->getMessage(),
+                    array(
+                        'status' => 419,
+                    )
+                );
+            }
             return new WP_Error(
                 'jwt_auth_invalid_token',
                 $e->getMessage(),
@@ -44,7 +53,7 @@ class AnJwt {
 		if( isset( $_REQUEST[ 'username' ] ) and isset( $_REQUEST[ 'password' ] ) ){
 			$auth = wp_authenticate( $_REQUEST[ 'username' ], $_REQUEST[ 'password' ] );
 			if ( is_wp_error( $auth ) ) {
-				return (object) array( 'code' => 'wrong_login_or_password', 'message' => 'Wrong login or password', 'status' => 403 );
+				return (object) array( 'code' => 'wrong_login_or_password', 'message' => 'Wrong login or password', 'status' => 401 );
 			}
 			else {
 				return self::newToken( $auth->data->ID );
@@ -57,14 +66,14 @@ class AnJwt {
                 $jwt_key = get_option( '_jwt_key', false );
 				$decoded = JWT::decode( $_REQUEST[ 'refreshToken' ], $jwt_key, array( 'HS256' ) );
 			} catch (Exception $e) {
-				return (object) array( 'message' => $e->getMessage(), 'code' => 'token_failed_validation', 'status' => 403 );
+				return (object) array( 'message' => $e->getMessage(), 'code' => 'token_failed_validation', 'status' => 401 );
 			}
             //Не тот токен
             if( !isset( $decoded->token ) ){
-				return (object) array( 'message' => 'Invalid token type', 'code' => 'invalid_token_type', 'status' => 403 );
+				return (object) array( 'message' => 'Invalid token type', 'code' => 'invalid_token_type', 'status' => 401 );
 			} 
 			if( $decoded->token != 'refresh' ){
-				return (object) array( 'message' => 'Invalid token type', 'code' => 'invalid_token_type', 'status' => 403 );
+				return (object) array( 'message' => 'Invalid token type', 'code' => 'invalid_token_type', 'status' => 401 );
 			} 
 			global $wpdb;
 			$row = $wpdb->get_results( "SELECT * FROM `" . $wpdb->prefix . "an_jwt_token` WHERE `hash` = '" . $decoded->hash ."'" );
@@ -74,7 +83,7 @@ class AnJwt {
 				return self::newToken($decoded->id, $decoded->hash);
 			}else{
 				//Не валидный токен
-				return (object) array( 'message' => 'Token out of date', 'code' => 'token_out_of_date', 'status' => 403 );
+				return (object) array( 'message' => 'Token out of date', 'code' => 'token_out_of_date', 'status' => 401 );
 			}
 		}
 		
@@ -121,7 +130,9 @@ class AnJwt {
                     'user_email' => $user->user_email,
                     'user_nicename' => $user->user_nicename,
                     'user_display_name' => $user->display_name,
-                    'client_ip' => $ip
+                    'client_ip' => $ip,
+                    'roles' => $user->roles,
+                    'allcaps' => $user->allcaps,
                 )
             );
 			return apply_filters( 'jwt_auth_token_before_dispatch', $rezult );

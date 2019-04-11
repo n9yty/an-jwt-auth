@@ -1,4 +1,4 @@
-<?php if( !defined( 'AN_JWT_AUTH' ) || AN_JWT_AUTH!==true ) die();
+<?php if(!defined("AUTO_COMMERCE") || AUTO_COMMERCE!==true)die();
 /**
  * Действия при активации плагина
  */

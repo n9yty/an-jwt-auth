@@ -145,7 +145,7 @@ function an_jwt_oauth_in( $rezult ){
 		return $rezult; 
 	}
 	if( $rezult ){
-		$rezult =  PB_JWT::ValidateTokenServer();
+		$rezult =  AnJwt::ValidateTokenServer();
 		if( isset($rezult->error) ) { 
 			return $rezult->error;
 		};

@@ -53,9 +53,14 @@ register_activation_hook( __FILE__, 'an_jwt_auth_activate' );
 function an_jwt_auth_activate(){
 	require_once AN_JWT_AUTH_ROOT . 'activation.php';
 }
+// http code
+
+require_once AN_JWT_AUTH_ROOT . 'http-code.php';
+
+
 // composer
 
-require_once 'lib/vendor/autoload.php';
+require_once AN_JWT_AUTH_ROOT . 'lib/vendor/autoload.php';
 
 // config
 
