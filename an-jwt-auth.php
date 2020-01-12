@@ -30,6 +30,8 @@
  * GNU General Public License for more details.
  */
 
+if(!defined("ABSPATH"))die();
+
 /**
  * Защита от прямого захода
  */

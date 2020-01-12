@@ -1,4 +1,7 @@
-<?php if(!defined("AUTO_COMMERCE") || AUTO_COMMERCE!==true)die();
+<?php
+
+if(!defined("ABSPATH"))die();
+
 /**
  * Действия при активации плагина
  */
